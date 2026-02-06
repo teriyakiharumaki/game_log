@@ -6,12 +6,8 @@
     <title>@yield('title', 'Game Log')</title>
   </head>
   <body>
-    <header>
-      <h1>
-        <a href="/">🎮 Game Log</a>
-      </h1>
-      <hr>
-    </header>
+    
+    @include('partials.header')
 
     <main>
       @yield('content')
