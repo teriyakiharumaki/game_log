@@ -5,9 +5,7 @@
 @section('content')
   <p>ゲームのレビューを記録するアプリです。</p>
 
-  <h2>最近のレビュー</h2>
-  <ul>
-    <li>トリッカル</li>
-    <li>Slay the Spire</li>
-  </ul>
+  <a href="{{ route('games.index') }}">
+    ゲーム一覧を見る →
+  </a>
 @endsection
