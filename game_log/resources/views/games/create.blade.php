@@ -44,8 +44,15 @@
     </div>
 
     <div>
-      <label>プレイ時間（分）</label><br>
-      <input type="number" name="play_time_minutes" min="0" value="{{ old('play_time_minutes') }}">
+      <label>プレイ時間</label><br>
+
+      <input type="number" name="play_time_hours" min="0" 
+            value="{{ old('play_time_hours') }}" style="width:80px;">
+      時間
+
+      <input type="number" name="play_time_minutes_part" min="0" max="59"
+            value="{{ old('play_time_minutes_part') }}" style="width:80px;">
+      分
     </div>
 
     <button type="submit">登録</button>

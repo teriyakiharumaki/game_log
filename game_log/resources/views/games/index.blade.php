@@ -18,6 +18,14 @@
           @endif
 
           - {{ ['unplayed'=>'未プレイ','playing'=>'プレイ中','cleared'=>'クリア済み'][$game->status] ?? $game->status }}
+
+          @if($game->play_time_minutes)
+            @php
+              $h = intdiv($game->play_time_minutes, 60);
+              $m = $game->play_time_minutes % 60;
+            @endphp
+            - {{ $h }}時間{{ $m }}分
+          @endif
         </li>
       @endforeach
     </ul>

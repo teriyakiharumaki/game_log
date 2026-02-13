@@ -33,6 +33,11 @@ class GameController extends Controller
             'cleared_at' => ['nullable', 'date'],
         ]);
 
+        $hours = (int) $request->input('play_time_hours', 0);
+        $minutes = (int) $request->input('play_time_minutes_part', 0);
+
+        $validated['play_time_minutes'] = $hours * 60 + $minutes;
+
         Game::create($validated);
 
         return redirect()->route('games.index');
