@@ -24,7 +24,14 @@
               $h = intdiv($game->play_time_minutes, 60);
               $m = $game->play_time_minutes % 60;
             @endphp
-            - {{ $h }}時間{{ $m }}分
+            
+            @if($h > 0)
+              {{ $h }}時間
+            @endif
+
+            @if($m > 0)
+              {{ $m }}分
+            @endif
           @endif
         </li>
       @endforeach
