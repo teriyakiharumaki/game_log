@@ -15,7 +15,7 @@
     @csrf
 
     <div>
-      <label>ゲーム名 *</label><br>
+      <label>ゲーム名</label><br>
       <input type="text" name="title" value="{{ old('title') }}" required>
     </div>
 
@@ -25,7 +25,7 @@
     </div>
 
     <div>
-      <label>ステータス *</label><br>
+      <label>プレイ状況</label><br>
       <select name="status" required>
         <option value="unplayed" @selected(old('status','unplayed')==='unplayed')>未プレイ</option>
         <option value="playing"  @selected(old('status')==='playing')>プレイ中</option>
