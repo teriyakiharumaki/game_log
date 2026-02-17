@@ -19,3 +19,4 @@ Route::get('/', fn () => view('home'));
 Route::get('/games', [GameController::class, 'index'])->name('games.index');
 Route::get('/games/create', [GameController::class, 'create'])->name('games.create');
 Route::post('/games', [GameController::class, 'store'])->name('games.store');
+Route::delete('/games/{game}', [GameController::class, 'destroy'])->name('games.destroy');

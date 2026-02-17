@@ -18,6 +18,13 @@ class GameController extends Controller
         return view('games.create');
     }
 
+    public function destroy(Game $game)
+    {
+        $game->delete();
+
+        return redirect()->route('games.index');
+    }
+
     public function store(Request $request)
     {
         $validated = $request->validate([
