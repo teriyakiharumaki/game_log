@@ -36,7 +36,7 @@
           <form action="{{ route('games.destroy', $game) }}" method="POST" style="display:inline;">
             @csrf
             @method('DELETE')
-            <button type="submit" onclick="return confirm('削除しますか？')">削除</button>
+            <button type="submit" onclick="return confirm('この記録を削除しますか？')">削除</button>
           </form>
         </li>
       @endforeach
