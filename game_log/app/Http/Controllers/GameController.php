@@ -9,7 +9,7 @@ class GameController extends Controller
 {
     public function index()
     {
-        $games = Game::orderByDesc('id')->get();
+        $games = Game::latest()->get();
         return view('games.index', compact('games'));
     }
 
