@@ -17,7 +17,15 @@
             - {{ str_repeat('★', $game->rating) }}{{ str_repeat('☆', 5 - $game->rating) }}
           @endif
 
-          - {{ ['unplayed'=>'未プレイ','playing'=>'プレイ中','cleared'=>'クリア済み'][$game->status] ?? $game->status }}
+          @if($game->status === 'unplayed')
+            <span style="color: gray;">未プレイ</span>
+          @elseif($game->status === 'playing')
+            <span style="color: orange;">プレイ中</span>
+          @elseif($game->status === 'cleared')
+            <span style="color: green;">クリア済み</span>
+          @else
+            <span>{{ $game->status }}</span>
+          @endif
 
           @if($game->play_time_minutes)
             @php
