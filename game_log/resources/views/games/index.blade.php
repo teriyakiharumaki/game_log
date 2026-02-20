@@ -33,6 +33,9 @@
               {{ $m }}分
             @endif
           @endif
+
+          <a href="{{ route('games.edit', $game) }}">編集</a>
+
           <form action="{{ route('games.destroy', $game) }}" method="POST" style="display:inline;">
             @csrf
             @method('DELETE')
