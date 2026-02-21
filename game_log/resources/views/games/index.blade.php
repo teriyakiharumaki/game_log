@@ -10,7 +10,10 @@
     <ul>
       @foreach ($games as $game)
         <li>
-          <strong>{{ $game->title }}</strong>
+          <a href="{{ route('games.show', $game) }}">
+            {{ $game->title }}
+          </a>
+
           @if($game->platform)（{{ $game->platform }}）@endif
 
           @if($game->rating)

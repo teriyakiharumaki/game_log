@@ -54,6 +54,10 @@ class GameController extends Controller
         return redirect()->route('games.index');
     }
 
+    public function show(Game $game)
+    {
+        return view('games.show', compact('game'));
+    }
 
     public function store(Request $request)
     {
