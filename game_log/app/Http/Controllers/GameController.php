@@ -22,7 +22,9 @@ class GameController extends Controller
     {
         $game->delete();
 
-        return redirect()->route('games.index');
+        return redirect()
+            ->route('games.index')
+            ->with('success', 'ゲームを削除しました！');
     }
 
 
@@ -51,7 +53,9 @@ class GameController extends Controller
 
         $game->update($validated);
 
-        return redirect()->route('games.index');
+        return redirect()
+            ->route('games.index')
+            ->with('success', 'ゲームを更新しました！');
     }
 
     public function show(Game $game)
@@ -81,6 +85,8 @@ class GameController extends Controller
 
         Game::create($validated);
 
-        return redirect()->route('games.index');
+        return redirect()
+            ->route('games.index')
+            ->with('success', 'ゲームを登録しました！');
     }
 }

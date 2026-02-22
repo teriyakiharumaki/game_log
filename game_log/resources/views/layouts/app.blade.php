@@ -10,6 +10,18 @@
     @include('partials.header')
 
     <main>
+      @if(session('success'))
+        <div style="
+            background:#e6fffa;
+            border:1px solid #38b2ac;
+            padding:10px;
+            margin-bottom:15px;
+            border-radius:5px;
+        ">
+            {{ session('success') }}
+        </div>
+      @endif
+
       @yield('content')
     </main>
   </body>
