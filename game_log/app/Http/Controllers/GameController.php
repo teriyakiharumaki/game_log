@@ -24,7 +24,7 @@ class GameController extends Controller
 
         return redirect()
             ->route('games.index')
-            ->with('success', 'ゲームを削除しました！');
+            ->with('success', '記録を削除しました！');
     }
 
 
@@ -55,7 +55,7 @@ class GameController extends Controller
 
         return redirect()
             ->route('games.index')
-            ->with('success', 'ゲームを更新しました！');
+            ->with('success', '記録を更新しました！');
     }
 
     public function show(Game $game)
@@ -87,6 +87,6 @@ class GameController extends Controller
 
         return redirect()
             ->route('games.index')
-            ->with('success', 'ゲームを登録しました！');
+            ->with('success', '登録しました！');
     }
 }
