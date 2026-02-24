@@ -10,7 +10,8 @@ class GameController extends Controller
     public function index()
     {
         $games = Game::latest()->get();
-        return view('games.index', compact('games'));
+        $totalMinutes = Game::sum('play_time_minutes');
+        return view('games.index', compact('games', 'totalMinutes'));
     }
 
     public function create()

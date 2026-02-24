@@ -4,6 +4,17 @@
   <h2>ゲーム一覧</h2>
   <p><a href="{{ route('games.create') }}">＋ 新規登録</a></p>
 
+  @php
+    $h = intdiv($totalMinutes, 60);
+    $m = $totalMinutes % 60;
+  @endphp
+
+  <div style="margin-bottom:15px; padding:10px; background:#f0f9ff;">
+    🎮 総プレイ時間：
+    @if($h > 0) {{ $h }}時間 @endif
+    @if($m > 0) {{ $m }}分 @endif
+  </div>
+
   @if ($games->isEmpty())
     <p>まだ登録がありません。</p>
   @else
