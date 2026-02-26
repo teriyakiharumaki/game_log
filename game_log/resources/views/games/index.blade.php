@@ -15,6 +15,16 @@
     @if($m > 0) {{ $m }}分 @endif
   </div>
 
+  <div style="margin-bottom:15px; padding:10px; background:#f8fafc; border-radius:5px;">
+    📊 プレイ状況：
+
+    未プレイ：{{ $statusCounts['unplayed'] ?? 0 }}件
+
+    プレイ中：{{ $statusCounts['playing'] ?? 0 }}件
+
+    クリア済み：{{ $statusCounts['cleared'] ?? 0 }}件
+  </div>
+
   @if ($games->isEmpty())
     <p>まだ登録がありません。</p>
   @else

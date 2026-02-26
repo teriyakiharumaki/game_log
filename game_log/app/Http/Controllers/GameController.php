@@ -11,7 +11,10 @@ class GameController extends Controller
     {
         $games = Game::latest()->get();
         $totalMinutes = Game::sum('play_time_minutes');
-        return view('games.index', compact('games', 'totalMinutes'));
+        $statusCounts = Game::selectRaw('status, COUNT(*) as count')
+        ->groupBy('status')
+        ->pluck('count', 'status');
+        return view('games.index', compact('games', 'totalMinutes', 'statusCounts'));
     }
 
     public function create()
