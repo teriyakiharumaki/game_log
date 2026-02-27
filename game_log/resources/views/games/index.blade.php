@@ -15,8 +15,8 @@
     @if($m > 0) {{ $m }}分 @endif
   </div>
 
-  <div style="margin-bottom:15px; padding:10px; background:#f8fafc; border-radius:5px;">
-    📊 プレイ状況：
+  <div style="margin-bottom:15px; padding:10px; background:#7fffd4; border-radius:5px;">
+    プレイ状況：
 
     未プレイ：{{ $statusCounts['unplayed'] ?? 0 }}件
 
