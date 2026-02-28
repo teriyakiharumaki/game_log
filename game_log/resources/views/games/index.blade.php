@@ -25,8 +25,14 @@
     クリア済み：{{ $statusCounts['cleared'] ?? 0 }}件
   </div>
 
-  <div style="margin-bottom:10px;">
-    🏆 クリア率：{{ $clearRate }}%
+  <div style="margin-bottom:15px;">
+    <div style="margin-bottom:6px;">
+      🏆 クリア率：{{ $clearRate }}%
+    </div>
+
+    <div style="width: 320px; max-width: 100%; background: #e5e7eb; border-radius: 9999px; overflow: hidden;">
+      <div style="width: {{ $clearRate }}%; background: #22c55e; padding: 6px 0;"></div>
+    </div>
   </div>
 
   @if ($games->isEmpty())
