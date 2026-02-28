@@ -25,6 +25,10 @@
     クリア済み：{{ $statusCounts['cleared'] ?? 0 }}件
   </div>
 
+  <div style="margin-bottom:10px;">
+    🏆 クリア率：{{ $clearRate }}%
+  </div>
+
   @if ($games->isEmpty())
     <p>まだ登録がありません。</p>
   @else
