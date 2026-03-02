@@ -57,9 +57,16 @@
     <ul>
       @foreach ($games as $game)
         <li>
-          <a href="{{ route('games.show', $game) }}">
-            {{ $game->title }}
-          </a>
+          <div style="
+              padding:10px;
+              margin-bottom:10px;
+              border:1px solid #ddd;
+              background: {{ $game->status === 'cleared' ? '#ecfdf5' : '#ffffff' }};
+          ">
+            <a href="{{ route('games.show', $game) }}">
+              {{ $game->title }}
+            </a>
+          </div>
 
           @if($game->platform)（{{ $game->platform }}）@endif
 
