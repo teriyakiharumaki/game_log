@@ -35,6 +35,22 @@
     </div>
   </div>
 
+  @php
+    if ($clearRate < 20) {
+      $title = '積みゲーマー';
+    } elseif ($clearRate < 60) {
+      $title = '冒険中ゲーマー';
+    } elseif ($clearRate < 90) {
+      $title = 'クリア職人';
+    } else {
+      $title = 'コンプリート勢';
+    }
+  @endphp
+
+  <div style="margin-top:8px; font-weight:bold; color:#f59e0b;">
+    称号：{{ $title }}
+  </div>
+
   @if ($games->isEmpty())
     <p>まだ登録がありません。</p>
   @else
