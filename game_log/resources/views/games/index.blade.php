@@ -64,6 +64,9 @@
               background: {{ $game->status === 'cleared' ? '#ecfdf5' : '#ffffff' }};
           ">
             <a href="{{ route('games.show', $game) }}">
+              @if($game->status === 'cleared')
+                🏆
+              @endif
               {{ $game->title }}
             </a>
           </div>
