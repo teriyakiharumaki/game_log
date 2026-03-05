@@ -16,13 +16,16 @@
   </div>
 
   <div style="margin-bottom:15px; padding:10px; background:#7fffd4; border-radius:5px;">
+
+    <strong>総ゲーム数：{{ $totalGames }}本</strong><br>
+
     プレイ状況：
 
-    未プレイ：{{ $statusCounts['unplayed'] ?? 0 }}件
+    未プレイ：{{ $statusCounts['unplayed'] ?? 0 }}本
 
-    プレイ中：{{ $statusCounts['playing'] ?? 0 }}件
+    プレイ中：{{ $statusCounts['playing'] ?? 0 }}本
 
-    クリア済み：{{ $statusCounts['cleared'] ?? 0 }}件
+    クリア済み：{{ $statusCounts['cleared'] ?? 0 }}本
   </div>
 
   <div style="margin-bottom:15px;">

@@ -28,11 +28,14 @@ class GameController extends Controller
 
         $clearRate = $total ? round($cleared / $total * 100) : 0;
 
+        $totalGames = Game::count();
+
         return view('games.index', compact(
             'games',
             'totalMinutes',
             'statusCounts',
-            'clearRate'
+            'clearRate',
+            'totalGames'
         ));
     }
 
