@@ -9,8 +9,16 @@ class GameController extends Controller
 {
     public function index()
     {
-        $games = Game::latest()->get();
+        $query = Game::query();
+
+        if (request()->filled('status')) {
+            $query->where('status', request('status'));
+        }
+
+        $games = $query->latest()->get();
+
         $totalMinutes = Game::sum('play_time_minutes');
+
         $statusCounts = Game::selectRaw('status, COUNT(*) as count')
             ->groupBy('status')
             ->pluck('count', 'status');

@@ -35,6 +35,22 @@
     </div>
   </div>
 
+  <div style="margin-bottom:15px;">
+    <a href="{{ route('games.index') }}">すべて</a> |
+
+    <a href="{{ route('games.index', ['status'=>'unplayed']) }}">
+      未プレイ
+    </a> |
+
+    <a href="{{ route('games.index', ['status'=>'playing']) }}">
+      プレイ中
+    </a> |
+
+    <a href="{{ route('games.index', ['status'=>'cleared']) }}">
+      クリア済み
+    </a>
+  </div>
+
   @php
     if ($clearRate < 20) {
       $title = '積みゲーマー';
