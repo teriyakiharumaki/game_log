@@ -128,6 +128,16 @@
             @method('DELETE')
             <button type="submit" onclick="return confirm('この記録を削除しますか？')">削除</button>
           </form>
+
+          <div x-data="{ open: false }">
+            <button type="button" @click="open = !open" style="margin:6px;">
+              <span x-text="open ? 'レビューを閉じる' : 'レビューを見る'"></span>
+            </button>
+
+            <div x-show="open" x-transition style="margin:6px;">
+              {{ $game->review }}
+            </div>
+          </div>
         </li>
       @endforeach
     </ul>
