@@ -1,9 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-  <p class="text-4xl">ゲーム一覧</p>
-  <p><a href="{{ route('games.create') }}" class="btn btn-neutral">＋ 新規登録</a></p>
-
+  <div class="flex justify-between m-8">
+    <p class="text-2xl font-bold">ゲーム一覧</p>
+    <p><a href="{{ route('games.create') }}" class="btn btn-neutral">＋ 新規登録</a></p>
+  </div>
+  
   @php
     $h = intdiv($totalMinutes, 60);
     $m = $totalMinutes % 60;
@@ -39,17 +41,17 @@
   </div>
 
   <div style="margin:15px;">
-    <a href="{{ route('games.index') }}">すべて</a> |
+    <a href="{{ route('games.index') }}" class="link link-hover">すべて</a> |
 
-    <a href="{{ route('games.index', ['status'=>'unplayed']) }}">
+    <a href="{{ route('games.index', ['status'=>'unplayed']) }}" class="link link-hover">
       未プレイ
     </a> |
 
-    <a href="{{ route('games.index', ['status'=>'playing']) }}">
+    <a href="{{ route('games.index', ['status'=>'playing']) }}" class="link link-hover">
       プレイ中
     </a> |
 
-    <a href="{{ route('games.index', ['status'=>'cleared']) }}">
+    <a href="{{ route('games.index', ['status'=>'cleared']) }}" class="link link-hover">
       クリア済み
     </a>
   </div>
@@ -66,7 +68,7 @@
     }
   @endphp
 
-  <div style="margin:15px; font-weight:bold; color:#f59e0b;">
+  <div class="font-bold m-4">
     称号：{{ $title }}
   </div>
 
@@ -107,7 +109,7 @@
                 $h = intdiv($game->play_time_minutes, 60);
                 $m = $game->play_time_minutes % 60;
               @endphp
-              
+
               @if($h > 0)
                 {{ $h }}時間
               @endif
