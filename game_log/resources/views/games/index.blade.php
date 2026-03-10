@@ -6,18 +6,14 @@
     <p><a href="{{ route('games.create') }}" class="btn btn-neutral">＋ 新規登録</a></p>
   </div>
   
+
+  
   @php
     $h = intdiv($totalMinutes, 60);
     $m = $totalMinutes % 60;
   @endphp
 
-  <div style="margin:15px; padding:10px; background:#f0f9ff;">
-    🎮 総プレイ時間：
-    @if($h > 0) {{ $h }}時間 @endif
-    @if($m > 0) {{ $m }}分 @endif
-  </div>
-
-  <div style="margin:15px; padding:10px; background:#7fffd4; border-radius:5px;">
+  <div style="margin:15px; padding:10px; border-radius:5px;">
 
     <strong>総ゲーム数：{{ $totalGames }}本</strong><br>
 
@@ -38,6 +34,12 @@
     <div style="width: 320px; max-width: 100%; background: #e5e7eb; border-radius: 9999px; overflow: hidden;">
       <div style="width: {{ $clearRate }}%; background: #22c55e; padding: 6px 0;"></div>
     </div>
+  </div>
+
+  <div style="margin:15px; padding:10px;">
+    総プレイ時間：
+    @if($h > 0) {{ $h }}時間 @endif
+    @if($m > 0) {{ $m }}分 @endif
   </div>
 
   <div style="margin:15px;">
@@ -95,13 +97,13 @@
             @endif
 
             @if($game->status === 'unplayed')
-              <span style="color: gray;">未プレイ</span>
+              <span style="color: gray;">プレイ状況：未プレイ</span>
             @elseif($game->status === 'playing')
-              <span style="color: orange;">プレイ中</span>
+              <span style="color: orange;">プレイ状況：プレイ中</span>
             @elseif($game->status === 'cleared')
-              <span style="color: green;">クリア済み</span>
+              <span style="color: green;">プレイ状況：クリア済み</span>
             @else
-              <span>{{ $game->status }}</span>
+              <span>プレイ状況：{{ $game->status }}</span>
             @endif
 
             @if($game->play_time_minutes)
@@ -109,6 +111,8 @@
                 $h = intdiv($game->play_time_minutes, 60);
                 $m = $game->play_time_minutes % 60;
               @endphp
+
+              プレイ時間：
 
               @if($h > 0)
                 {{ $h }}時間
@@ -120,7 +124,7 @@
             @endif
 
             <div x-data="{ open: false }">
-              <button type="button" @click="open = !open">
+              <button type="button" @click="open = !open" class="btn btn-accent">
                 <span x-text="open ? 'レビューを閉じる' : 'レビューを見る'"></span>
               </button>
               <div x-show="open" x-transition style="margin:6px;">
