@@ -2,10 +2,10 @@
 
 @section('content')
   <div class="max-w-3xl mx-auto">
-    <div class="card bg-base-100 shadow-xl border border-base-200">
+    <div class="card bg-base-100 shadow-xl border border-base-200 m-8">
       <div class="card-body">
         <h2 class="card-title text-2xl">
-          🎮 {{ $game->title }}
+          {{ $game->title }}
         </h2>
 
         <div class="divider my-1"></div>
