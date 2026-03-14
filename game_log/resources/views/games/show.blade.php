@@ -67,6 +67,14 @@
         </div>
 
         <div class="card-actions justify-end mt-6">
+          <a href="{{ route('games.edit', $game) }}" class="btn btn-outline btn-success">編集</a>
+
+          <form action="{{ route('games.destroy', $game) }}" method="POST" style="display:inline;">
+            @csrf
+            @method('DELETE')
+            <button type="submit" onclick="return confirm('この記録を削除しますか？')" class="btn btn-outline btn-error">削除</button>
+          </form>
+
           <a href="{{ route('games.index') }}" class="btn btn-outline">
             ← 一覧へ戻る
           </a>
